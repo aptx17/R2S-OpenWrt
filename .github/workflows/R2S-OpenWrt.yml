@@ -1,18 +1,19 @@
 name: R2S-OpenWrt
 
 on:
-#  push:
-#    branches: 
-#      - master
-  schedule:
-    - cron: 40 11 * * *
-  watch:
-    types: [started]
+  push:
+    branches: 
+      - master
+    paths:
+      - '.github/workflows/R2S-OpenWrt.yml'
+#  schedule:
+ #   - cron: 40 11 * * *
+
 
 jobs:
   build:
     runs-on: ubuntu-18.04
-    if: github.event.repository.owner.id == github.event.sender.id
+    if: github.repository == 'aptx17/R2S-OpenWrt'
     
     steps:
     - name: Clone Repository
@@ -41,10 +42,6 @@ jobs:
         cd openwrt
         cp -r ../SCRIPTS/. ./
         /bin/bash 02_prepare_package.sh
-    - name: Convert Translation
-      run: |
-        cd openwrt
-        /bin/bash 03_convert_translation.sh
     - name: Remove Upx
       run: |
         cd openwrt
@@ -67,6 +64,7 @@ jobs:
         make -j${make_process} V=s || make -j${make_process} V=s
     - name: Cleaning
       run: |
+        cp .config openwrt/bin/targets/rockchip/armv8
         cd openwrt/bin/targets/rockchip/armv8
         rm -rf `ls | grep -v "ext4"`
     - name: Upload Firmwares
