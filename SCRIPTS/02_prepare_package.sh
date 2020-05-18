@@ -14,6 +14,7 @@ sed -i 's,-DMULTIT,-Ofast -DMULTIT,g' package/lean/coremark/Makefile
 #主题
 git clone -b master --single-branch https://github.com/jerrykuku/luci-theme-argon package/new/luci-theme-argon
 #FullCone补丁
+# FullCone
 git clone -b master --single-branch https://github.com/QiuSimons/openwrt-fullconenat package/fullconenat
 # FireWall Patch
 mkdir package/network/config/firewall/patches
