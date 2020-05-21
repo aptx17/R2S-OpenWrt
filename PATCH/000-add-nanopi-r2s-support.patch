@@ -1893,7 +1893,6 @@ diff -ruN a/arch/arm64/configs/nanopi-r2_linux_defconfig b/arch/arm64/configs/na
 +CONFIG_POSIX_MQUEUE=y
 +CONFIG_NO_HZ=y
 +CONFIG_HIGH_RES_TIMERS=y
-+CONFIG_PREEMPT=y
 +CONFIG_BSD_PROCESS_ACCT=y
 +CONFIG_BSD_PROCESS_ACCT_V3=y
 +CONFIG_TASKSTATS=y
@@ -3565,7 +3564,6 @@ diff -ruN a/arch/arm64/configs/nanopi4_linux_defconfig b/arch/arm64/configs/nano
 +CONFIG_POSIX_MQUEUE=y
 +CONFIG_NO_HZ=y
 +CONFIG_HIGH_RES_TIMERS=y
-+CONFIG_PREEMPT=y
 +CONFIG_BSD_PROCESS_ACCT=y
 +CONFIG_BSD_PROCESS_ACCT_V3=y
 +CONFIG_TASKSTATS=y
