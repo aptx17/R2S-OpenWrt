@@ -7,7 +7,7 @@ on:
     paths:
       - '.github/workflows/R2S-OpenWrt.yml'
 #  schedule:
- #   - cron: 00 01 * * *
+ #   - cron: '00 10 * * *'
 
 
 jobs:
@@ -17,7 +17,9 @@ jobs:
     
     steps:
     - name: Clone Repository
-      uses: actions/checkout@v1
+      uses: actions/checkout@master
+      with:
+          ref: master
     - name: Init build dependencies
       env:
         DEBIAN_FRONTEND: noninteractive
