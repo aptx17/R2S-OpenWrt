@@ -31,6 +31,8 @@ wget https://raw.githubusercontent.com/project-openwrt/openwrt/18.06-kernel5.4/t
 popd
 #最大连接
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+#Login IP
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 #生成默认配置及缓存
 rm -rf .config
 #修正架构
