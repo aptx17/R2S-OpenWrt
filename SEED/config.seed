@@ -5,6 +5,7 @@ CONFIG_LUCI_LANG_zh_Hans=y
 CONFIG_LUCI_LANG_zh-cn=y
 CONFIG_DEVEL=y
 CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_kmod-ikconfig=y
 CONFIG_PACKAGE_kmod-usb-net=y
 CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
 CONFIG_KERNEL_BUILD_DOMAIN="buildhost"
