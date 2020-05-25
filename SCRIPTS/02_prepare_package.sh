@@ -13,6 +13,12 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-arpbind 
 #sed -i 's/Os/O3/g' include/target.mk
 #sed -i 's/O2/O3/g' ./rules.mk
 #AutoCore
+svn co https://github.com/project-openwrt/openwrt/branches/openwrt-19.07/package/lean/autocore package/lean/autocore
+sed -i "s,@TARGET_x86 ,,g" package/lean/autocore/Makefile
+rm -rf ./package/lean/autocore/files/cpuinfo
+wget -P package/lean/autocore/files https://raw.githubusercontent.com/QiuSimons/Others/master/cpuinfo
+rm -rf ./package/lean/autocore/files/rpcd_10_system.js
+wget -P package/lean/autocore/files https://raw.githubusercontent.com/QiuSimons/Others/master/rpcd_10_system.js
 svn co https://github.com/project-openwrt/openwrt/branches/openwrt-19.07/package/lean/coremark package/lean/coremark
 sed -i 's,-DMULTIT,-Ofast -DMULTIT,g' package/lean/coremark/Makefile
 #FullCone补丁
