@@ -1938,7 +1938,7 @@ diff -ruN a/arch/arm64/configs/nanopi-r2_linux_defconfig b/arch/arm64/configs/na
 +# CONFIG_RD_LZMA is not set
 +# CONFIG_RD_XZ is not set
 +# CONFIG_RD_LZO is not set
-+# CONFIG_BPF_SYSCALL is not set
++CONFIG_BPF_SYSCALL=y
 +CONFIG_USERFAULTFD=y
 +CONFIG_EMBEDDED=y
 +# CONFIG_COMPAT_BRK is not set
@@ -3609,7 +3609,7 @@ diff -ruN a/arch/arm64/configs/nanopi4_linux_defconfig b/arch/arm64/configs/nano
 +# CONFIG_RD_LZMA is not set
 +# CONFIG_RD_XZ is not set
 +# CONFIG_RD_LZO is not set
-+# CONFIG_BPF_SYSCALL is not set
++CONFIG_BPF_SYSCALL=y
 +CONFIG_USERFAULTFD=y
 +CONFIG_EMBEDDED=y
 +# CONFIG_COMPAT_BRK is not set
