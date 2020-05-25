@@ -33,6 +33,8 @@ popd
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 #Login IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+#Change redirect
+sed -i 's/option redirect_https.*/option redirect_https 0/' package/network/services/uhttpd/files/uhttpd.config
 #生成默认配置及缓存
 rm -rf .config
 #修正架构
