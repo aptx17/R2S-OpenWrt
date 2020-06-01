@@ -7,7 +7,7 @@ on:
     paths:
       - '.github/workflows/R2S-OpenWrt.yml'
 #  schedule:
- #   - cron: '00 11 * * *'
+ #   - cron: '00 01 * * *'
 
 jobs:
   build:
