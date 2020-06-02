@@ -2743,8 +2743,8 @@ diff -rNEZbwBdu3 a/target/linux/rockchip/image/mmc.bootscript b/target/linux/roc
 diff -rNEZbwBdu3 a/package/libs/openssl/Makefile b/package/libs/openssl/Makefile
 --- a/package/libs/openssl/Makefile	2020-05-11 22:49:04.000000000 +0800
 +++ b/package/libs/openssl/Makefile	2020-05-21 22:10:35.000000000 +0800
-@@ -340,15 +340,14 @@ define Build/Configure
-	       )
+@@ -340,15 +340,14 @@
+	  )
   endef
 
 - TARGET_CFLAGS += $(FPIC) -ffunction-sections -fdata-sections
@@ -2752,11 +2752,11 @@ diff -rNEZbwBdu3 a/package/libs/openssl/Makefile b/package/libs/openssl/Makefile
 
   define Build/Compile
 	       +$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) \
-		              CROSS_COMPILE="$(TARGET_CROSS)" \
-	              	CC="$(TARGET_CC)" \
-		              SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) \
--		             OPENWRT_OPTIMIZATION_FLAGS="$(TARGET_CFLAGS)" \
-+		             OPENWRT_OPTIMIZATION_FLAGS="-Wno-error=unused-but-set-variable -Wno-error=unused-result -O3 -ffunction-sections -fdata-sections" \
-		              $(OPENSSL_MAKEFLAGS) \
-		              all
-         $(MAKE) -C $(PKG_BUILD_DIR) \
+		       CROSS_COMPILE="$(TARGET_CROSS)" \
+	               CC="$(TARGET_CC)" \
+		       SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) \
+-		       OPENWRT_OPTIMIZATION_FLAGS="$(TARGET_CFLAGS)" \
++		       OPENWRT_OPTIMIZATION_FLAGS="-Wno-error=unused-but-set-variable -Wno-error=unused-result -O3 -ffunction-sections -fdata-sections" \
+		       $(OPENSSL_MAKEFLAGS) \
+		       all
+               $(MAKE) -C $(PKG_BUILD_DIR) \
