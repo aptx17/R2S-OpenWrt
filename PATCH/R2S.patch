@@ -2706,11 +2706,7 @@ diff -rNEZbwBdu3 a/target/linux/rockchip/image/Makefile b/target/linux/rockchip/
 +	mkimage -A arm -O linux -T script -C lzma -a 0 -e 0 -d mmc.bootscript $@.boot/boot.scr
  endef
  
-- define Build/pine64-img
-+ define Build/sdcard-img
-	       # Creates the final SD/eMMC images, 
-        # combining boot partition, root partition as well as the u-boot bootloader
-
+ define Build/pine64-img
 @@ -50,7 +50,7 @@
  ### Devices ###
  define Device/Default
