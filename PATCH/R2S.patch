@@ -2706,7 +2706,11 @@ diff -rNEZbwBdu3 a/target/linux/rockchip/image/Makefile b/target/linux/rockchip/
 +	mkimage -A arm -O linux -T script -C lzma -a 0 -e 0 -d mmc.bootscript $@.boot/boot.scr
  endef
  
- define Build/pine64-img
+- define Build/pine64-img
++ define Build/sdcard-img
+	       # Creates the final SD/eMMC images, 
+        # combining boot partition, root partition as well as the u-boot bootloader
+
 @@ -50,7 +50,7 @@
  ### Devices ###
  define Device/Default
@@ -2740,3 +2744,23 @@ diff -rNEZbwBdu3 a/target/linux/rockchip/image/mmc.bootscript b/target/linux/roc
 +lzmadec ${kernel_addr_r} ${kernel_addr_dec}
 +
 +booti ${kernel_addr_dec} - ${fdt_addr_r}
+diff -rNEZbwBdu3 a/package/libs/openssl/Makefile b/package/libs/openssl/Makefile
+--- a/package/libs/openssl/Makefile	2020-05-11 22:49:04.000000000 +0800
++++ b/package/libs/openssl/Makefile	2020-05-21 22:10:35.000000000 +0800
+@@ -340,15 +340,14 @@ define Build/Configure
+	       )
+  endef
+
+- TARGET_CFLAGS += $(FPIC) -ffunction-sections -fdata-sections
+  TARGET_LDFLAGS += -Wl,--gc-sections
+
+  define Build/Compile
+	       +$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) \
+		              CROSS_COMPILE="$(TARGET_CROSS)" \
+	              	CC="$(TARGET_CC)" \
+		              SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) \
+-		             OPENWRT_OPTIMIZATION_FLAGS="$(TARGET_CFLAGS)" \
++		             OPENWRT_OPTIMIZATION_FLAGS="-Wno-error=unused-but-set-variable -Wno-error=unused-result -O3 -ffunction-sections -fdata-sections" \
+		              $(OPENSSL_MAKEFLAGS) \
+		              all
+         $(MAKE) -C $(PKG_BUILD_DIR) \
