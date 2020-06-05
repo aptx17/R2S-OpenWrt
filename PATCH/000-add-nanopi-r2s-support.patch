@@ -1860,6 +1860,32 @@ diff -ruN a/arch/arm64/boot/dts/rockchip/rk3328.dtsi b/arch/arm64/boot/dts/rockc
  	sdmmc: dwmmc@ff500000 {
  		compatible = "rockchip,rk3328-dw-mshc", "rockchip,rk3288-dw-mshc";
  		reg = <0x0 0xff500000 0x0 0x4000>;
+@@ -831,6 +831,8 @@
+ 		clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+ 		fifo-depth = <0x100>;
+ 		max-frequency = <150000000>;
++		resets = <&cru SRST_MMC0>;
++		reset-names = "reset";
+ 		status = "disabled";
+ 	};
+
+@@ -843,6 +845,8 @@
+ 		clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+ 		fifo-depth = <0x100>;
+ 		max-frequency = <150000000>;
++		resets = <&cru SRST_SDIO>;
++		reset-names = "reset";
+ 		status = "disabled";
+ 	};
+
+@@ -855,6 +859,8 @@
+ 		clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+ 		fifo-depth = <0x100>;
+ 		max-frequency = <150000000>;
++		resets = <&cru SRST_EMMC>;
++		reset-names = "reset";
+ 		status = "disabled";
+ 	};
 @@ -936,6 +977,37 @@
  		status = "disabled";
  	};
