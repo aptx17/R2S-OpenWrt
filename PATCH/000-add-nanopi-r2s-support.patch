@@ -5716,6 +5716,33 @@ diff -ruN a/block/partitions/rk.h b/block/partitions/rk.h
 +extern int rkpart_partition(struct parsed_partitions *state);
 +
 +#endif
+diff -ruN a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+--- a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+@@ -336,11 +336,23 @@
+ 	status = "okay";
+
+ 	spiflash@0 {
+-		compatible = "jedec,spi-nor";
++		compatible = "gigadevice,gd25q128", "jedec,spi-nor";
+ 		reg = <0>;
++		m25p,fast-read;
+
+ 		/* maximum speed for Rockchip SPI */
+ 		spi-max-frequency = <50000000>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			loader@8000 {
++				label = "loader";
++				reg = <0x8000 0x3F0000>;
++			};
++		};
+ 	};
+ };
 diff -ruN a/drivers/clk/rockchip/clk-ddr.c b/drivers/clk/rockchip/clk-ddr.c
 --- a/drivers/clk/rockchip/clk-ddr.c	2020-05-10 08:31:34.000000000 +0000
 +++ b/drivers/clk/rockchip/clk-ddr.c	2020-05-17 20:28:34.815109195 +0000
