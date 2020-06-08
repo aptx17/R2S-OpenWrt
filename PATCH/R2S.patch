@@ -10,7 +10,7 @@ diff -rNEZbwBdu3 a/package/boot/arm-trusted-firmware-rockchip/Makefile b/package
  PKG_RELEASE:=1
  
  PKG_SOURCE:=atf-v$(PKG_VERSION).tar.gz
- PKG_SOURCE_URL:=https://github.com/atf-builds/atf/releases/download/v$(PKG_VERSION)/atf-v2.3.tar.gz?
+ PKG_SOURCE_URL:=https://github.com/atf-builds/atf/releases/download/v$(PKG_VERSION)/atf-v$(PKG_VERSION).tar.gz?
 -PKG_HASH:=8d0a2bd18adf54f9cf6fe923d10f21c1d21f42a15067757333ff8989b25f100a
 +PKG_HASH:=bf352298743aed594cf2958dd588e06ab6713fc514bb6f809bf55a85a87134c1
  
