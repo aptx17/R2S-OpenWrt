@@ -1,8 +1,10 @@
 #!/bin/bash
-git clone https://github.com/jayanta525/openwrt-nanopi-r2s.git
-cd openwrt-nanopi-r2s
+git clone https://git.openwrt.org/openwrt/openwrt.git
+cd openwrt0-r2S
+patch -p1 < ../PATCH/R.patch
 cd target/linux/rockchip
-cp -rf ../../../../PATCH/001-add-nanopi-r2s-support.patch patches-5.4/001-add-nanopi-r2s-support.patch
+mkdir patches-5.4
+cp -rf ../../../../PATCH/000-add-nanopi-r2s-support.patch patches-5.4/000-add-nanopi-r2s-support.patch
 cd ..
 cd ..
 cd ..
