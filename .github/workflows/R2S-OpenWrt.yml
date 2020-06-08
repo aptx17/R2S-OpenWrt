@@ -36,36 +36,36 @@ jobs:
         /bin/bash 01_get_ready.sh
     - name: Prepare Package
       run: |
-        cd openwrt
+        cd openwrt-nanopi-r2s
         cp -r ../SCRIPTS/. ./
         /bin/bash 02_prepare_package.sh
     - name: Remove Upx
       run: |
-        cd openwrt
+        cd openwrt-nanopi-r2s
         /bin/bash 04_remove_upx.sh
     - name: Make Config
       run: |
-        cd openwrt
+        cd openwrt-nanopi-r2s
         mv ../SEED/config.seed .config
         make defconfig
         chmod -R 755 ./
     - name: Make Toolchain
       run: |
-        cd openwrt
+        cd openwrt-nanopi-r2s
         let make_process=$(nproc)+1
         make toolchain/install -j${make_process} V=s
     - name: Compile Openwrt
       run: |
-        cd openwrt
+        cd openwrt-nanopi-r2s
         let make_process=$(nproc)+1
         make -j${make_process} V=s || make -j${make_process} V=s
     - name: Cleaning
       run: |
-        cp openwrt/.config openwrt/bin/targets/rockchip/armv8
-        cd openwrt/bin/targets/rockchip/armv8
+        cp openwrt-nanopi-r2s/.config openwrt-nanopi-r2s/bin/targets/rockchip/armv8
+        cd openwrt-nanopi-r2s/bin/targets/rockchip/armv8
         /bin/bash ../../../../../SCRIPTS/05_cleaning.sh
     - name: Upload Firmwares
       uses: actions/upload-artifact@master
       with:
         name: R2S-OpenWrt
-        path: openwrt/bin/targets/rockchip/armv8/
+        path: openwrt-nanopi-r2s/bin/targets/rockchip/armv8/
