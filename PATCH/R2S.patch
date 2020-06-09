@@ -2688,7 +2688,7 @@ diff -rNEZbwBdu3 a/target/linux/rockchip/image/armv8.mk b/target/linux/rockchip/
 +  SOC := rk3328
 +  UBOOT_DEVICE_NAME := rock64-rk3328
 +  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
--  DEVICE_PACKAGES += kmod-drm-rockchip kmod-drm-rockchip-hdmi-sound
++  DEVICE_PACKAGES += kmod-drm-rockchip kmod-drm-rockchip-hdmi-sound
 +endef
 +TARGET_DEVICES += pine64_rock64
 +
