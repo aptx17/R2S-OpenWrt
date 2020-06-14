@@ -41,6 +41,9 @@ sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 #Change redirect
 sed -i 's/option redirect_https.*/option redirect_https 0/' package/network/services/uhttpd/files/uhttpd.config
+#irq-interrupts
+sed -i '/exit/i\echo "2" > /proc/irq/166/smp_affinity' package/base-files/files/etc/rc.local
+sed -i '/exit/i\echo "4" > /proc/irq/14/smp_affinity' package/base-files/files/etc/rc.local
 #生成默认配置及缓存
 rm -rf .config
 #修正架构
