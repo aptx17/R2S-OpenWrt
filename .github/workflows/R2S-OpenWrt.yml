@@ -67,5 +67,5 @@ jobs:
     - name: Upload Firmwares
       uses: actions/upload-artifact@master
       with:
-        name: R2S-OpenWrt-kernel-bump-5.4to5.4.45
+        name: R2S-OpenWrt
         path: openwrt/bin/targets/rockchip/armv8/
