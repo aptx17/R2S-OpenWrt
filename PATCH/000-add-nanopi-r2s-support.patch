@@ -3544,7 +3544,6 @@ diff -ruN a/arch/arm64/configs/nanopi-r2_linux_defconfig b/arch/arm64/configs/na
 +CONFIG_CRYPTO_CAST5=m
 +CONFIG_CRYPTO_CAST6=m
 +CONFIG_CRYPTO_DES=y
-+CONFIG_CRYPTO_ENGINE=y
 +CONFIG_CRYPTO_KHAZAD=m
 +CONFIG_CRYPTO_SALSA20=m
 +CONFIG_CRYPTO_SEED=m
@@ -5226,7 +5225,6 @@ diff -ruN a/arch/arm64/configs/nanopi4_linux_defconfig b/arch/arm64/configs/nano
 +CONFIG_CRYPTO_CAST5=m
 +CONFIG_CRYPTO_CAST6=m
 +CONFIG_CRYPTO_DES=y
-+CONFIG_CRYPTO_ENGINE=y
 +CONFIG_CRYPTO_KHAZAD=m
 +CONFIG_CRYPTO_SALSA20=m
 +CONFIG_CRYPTO_SEED=m
