@@ -44,6 +44,13 @@ sed -i 's/option redirect_https.*/option redirect_https 0/' package/network/serv
 #irq-interrupts
 sed -i '/exit/i\echo "2" > /proc/irq/166/smp_affinity' package/base-files/files/etc/rc.local
 sed -i '/exit/i\echo "4" > /proc/irq/14/smp_affinity' package/base-files/files/etc/rc.local
+#Tencent feeds
+sed -i '/openwrt_luci/ { s/snapshots\/packages/releases\/packages-19.07/g; }' /etc/opkg/distfeeds.conf
+sed -i '/openwrt_packages/ { s/snapshots\/packages/releases\/packages-19.07/g; }' /etc/opkg/distfeeds.conf
+sed -i '/openwrt_routing/ { s/snapshots\/packages/releases\/packages-19.07/g; }' /etc/opkg/distfeeds.conf
+sed -i '/openwrt_telephony/ { s/snapshots\/packages/releases\/packages-19.07/g; }' /etc/opkg/distfeeds.conf
+sed -i '/natelol/d' /etc/opkg/distfeeds.conf
+sed -i 's,downloads.openwrt.org,mirrors.cloud.tencent.com/openwrt,g' /etc/opkg/distfeeds.conf
 #生成默认配置及缓存
 rm -rf .config
 #修正架构
