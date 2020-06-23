@@ -41,6 +41,9 @@ sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 #Change redirect
 sed -i 's/option redirect_https.*/option redirect_https 0/' package/network/services/uhttpd/files/uhttpd.config
+sed -i 's/list listen_https/#list listen_https/g' package/network/services/uhttpd/files/uhttpd.config
+# x dnsmasq log
+sed -i '$a\log-facility=/dev/null' package/network/services/dnsmasq/files/dnsmasq.conf
 #irq-interrupts
 sed -i '/exit/i\echo "2" > /proc/irq/166/smp_affinity' package/base-files/files/etc/rc.local
 sed -i '/exit/i\echo "4" > /proc/irq/27/smp_affinity' package/base-files/files/etc/rc.local
