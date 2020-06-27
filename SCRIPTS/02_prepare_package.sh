@@ -45,9 +45,7 @@ sed -i 's/list listen_https/#list listen_https/g' package/network/services/uhttp
 # x dnsmasq log
 sed -i '$a\log-facility=/dev/null' package/network/services/dnsmasq/files/dnsmasq.conf
 #irq-interrupts
-sed -i '/exit/i\echo "2" > /proc/irq/166/smp_affinity' package/base-files/files/etc/rc.local
-sed -i '/exit/i\echo "4" > /proc/irq/27/smp_affinity' package/base-files/files/etc/rc.local
-sed -i '/exit/i\echo "8" > /proc/irq/14/smp_affinity' package/base-files/files/etc/rc.local
+sed -i '/exit/i\echo "8" > /proc/irq/28/smp_affinity' package/base-files/files/etc/rc.local
 #生成默认配置及缓存
 rm -rf .config
 #修正架构
