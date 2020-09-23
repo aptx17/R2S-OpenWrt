@@ -1,8 +1,5 @@
 #!/bin/bash
 clear
-#Kernel
-wget -O- https://raw.githubusercontent.com/aptx17/nanopi-openwrt/master/scripts/rk3328.patch | patch -p1
-wget -O- https://raw.githubusercontent.com/aptx17/nanopi-openwrt/master/scripts/r8152.patch | patch -p1
 
 rm -f ./feeds.conf.default
 wget https://raw.githubusercontent.com/openwrt/openwrt/openwrt-19.07/feeds.conf.default
