@@ -1,5 +1,9 @@
 #!/bin/bash
 clear
+#Kernel
+wget -O- https://raw.githubusercontent.com/aptx17/nanopi-openwrt/master/scripts/rk3328.patch | patch -p1
+wget -O- https://raw.githubusercontent.com/aptx17/nanopi-openwrt/master/scripts/r8152.patch | patch -p1
+
 rm -f ./feeds.conf.default
 wget https://raw.githubusercontent.com/openwrt/openwrt/openwrt-19.07/feeds.conf.default
 #remove annoying snapshot tag
@@ -33,7 +37,7 @@ wget -O- https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/luci.patch 
 popd
 # Patch Kernel
 pushd target/linux/generic/hack-5.4
-wget https://raw.githubusercontent.com/project-openwrt/openwrt/18.06-kernel5.4/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
+wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 popd
 #最大连接
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
